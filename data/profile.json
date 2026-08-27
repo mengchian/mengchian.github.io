@@ -1,44 +1,61 @@
 {
-  "name": "陳詠翔",
-  "title": "前端工程師",
-  "titleEn": "Frontend Developer",
-  "tagline": "打造細節到位、使用者有感的介面",
-  "location": "台中, 台灣",
-  "email": "you@example.com",
-  "github": "https://github.com/yourusername",
-  "linkedin": "https://linkedin.com/in/yourusername",
-  "about": "我是一名專注於前端開發的工程師,喜歡把複雜的邏輯拆解成清楚、好維護的介面。過去幾年主要使用 JavaScript 生態系開發網站與內部工具,重視程式碼品質與使用者體驗的平衡。目前在尋找能持續成長、與團隊一起打磨產品細節的前端工程師職缺。\n\n這段文字只是預設內容,請直接打開 data/profile.json 修改成你自己的自傳。",
+  "name": "吳孟謙",
+  "title": "資訊人員",
+  "titleEn": "IT / MIS Engineer",
+  "tagline": "深度學習研究 × 硬體維運 × 系統開發",
+  "location": "台中市西屯區",
+  "email": "smartwu6229@gmail.com",
+  "github": "https://github.com/mengchian",
+  "linkedin": "",
+  "about": "畢業於逢甲大學資訊工程碩士,具備資料處理、深度學習模型建構與系統開發能力,並擁有一線企業 IT Help Desk 實習經驗。\n\n資工與 AI 實務:碩士期間專注於腦波訊號分析、資料預處理與深度學習模型建構;大學時期曾團隊合作開發音樂推薦系統,具備完整的軟體專案開發與模組整合經驗。\n\n企業實踐與問題解決:曾於上銀科技擔任 IT Help Desk 實習生,負責全公司同仁電腦設備障礙排除、系統軟硬體部署與資料備份,鍛鍊出極佳的溝通能力與實事求是的排錯邏輯。\n\n快速學習與高度適應力:具備強烈的自學動機與適應力,剛服完兵役,對業界生態保持開放積極態度。目前期許投入半導體製程或封裝領域,不論是學習企業專用軟體、深入了解製程技術或實地參與產線運作,皆具備極高的學習熱忱與執行力。",
   "skills": [
+    "Python",
+    "C",
+    "MATLAB",
+    "PHP",
+    "Java",
+    "SQL",
+    "HTML/CSS",
+    "Bootstrap",
+    "AJAX",
     "JavaScript",
-    "TypeScript",
-    "HTML / CSS",
-    "React",
     "Git",
-    "REST API",
-    "Responsive Design",
-    "Webpack / Vite"
+    "MySQL",
+    "PyTorch",
+    "TensorFlow",
+    "Keras",
+    "OpenCV",
+    "EEGLAB",
+    "CUDA"
   ],
   "experience": [
     {
-      "date": "2024-03",
-      "hash": "f3a9c1e",
-      "title": "前端工程師",
-      "company": "範例科技股份有限公司",
-      "description": "負責公司主要產品的前端開發與維護,參與元件庫建置,將頁面載入時間優化約 30%。"
+      "date": "2024/9 – 2025/6",
+      "hash": "a1c9f02",
+      "title": "專案研究助理",
+      "company": "逢甲大學",
+      "description": "碩士期間負責相關研究專案,執行數據資料的蒐集與彙整,並定期於會議中進行簡報與進度討論。主導深度學習模型架構的建立與實驗設計,並透過數據測試與結果分析持續優化模型效能。"
     },
     {
-      "date": "2022-07",
-      "hash": "b7d2f45",
-      "title": "前端工程師 (實習)",
-      "company": "另一間範例公司",
-      "description": "協助開發行銷活動頁與後台管理介面,與設計師密切合作還原視覺稿。"
+      "date": "2022/2 – 2022/6",
+      "hash": "7e4b81d",
+      "title": "IT Help Desk 實習生",
+      "company": "上銀科技股份有限公司",
+      "description": "負責全公司同仁電腦設備障礙排除、硬體更換與資料備份作業、公務行動裝置設定,以及使用者終端設備維護,獲得部門主管肯定與轉正(預聘)機會。"
     },
     {
-      "date": "2021-09",
-      "hash": "1a8e6c0",
-      "title": "資訊工程學系",
-      "company": "範例大學",
-      "description": "主修軟體工程,參與校內程式設計相關社團與競賽。"
+      "date": "2023/9 – 2026/1",
+      "hash": "c02de3a",
+      "title": "資訊工程學系 碩士畢業",
+      "company": "逢甲大學",
+      "description": "碩士論文研究結合腦機介面(BCI)與深度學習的生理訊號分析,設計 CNN-SENet-BiLSTM 混合架構,於 SEED 情緒資料集取得 96.38% 分類準確率。"
+    },
+    {
+      "date": "2018/9 – 2022/6",
+      "hash": "5f18b6e",
+      "title": "資訊工程學系 大學畢業",
+      "company": "東海大學",
+      "description": "大學時期團隊合作開發音樂推薦系統,發表論文於 TANET2021。"
     }
   ]
 }
