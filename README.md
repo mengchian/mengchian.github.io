@@ -1,6 +1,6 @@
 # 個人網站
 
-用純 HTML / CSS / JS 打造的個人作品集網站,內容由 `data/` 資料夾中的 JSON 檔案驅動。
+網址:https://mengchian.github.io/
 
 ## 檔案結構
 
@@ -24,8 +24,6 @@ portfolio/
 
 改完存檔、`git push` 上去,GitHub Pages 就會自動更新。
 
-> 下一步我們會做一個 `admin.html` 管理介面,讓你不用手動編輯 JSON、也不用打指令,
-> 直接在網頁上填表單就能更新這兩個檔案。
 
 ## 本機預覽
 
