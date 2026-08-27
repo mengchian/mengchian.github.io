@@ -132,6 +132,6 @@ function renderContact(profile) {
   } catch (err) {
     console.error("載入資料失敗", err);
     document.body.innerHTML =
-      '<p style="color:#fff;font-family:monospace;padding:40px;">資料載入失敗,請確認 data/profile.json 與 data/projects.json 是否存在且格式正確。</p>';
+      '<p style="color:#fff;font-family:monospace;padding:40px;">網站載入失敗：${escapeHtml(err.message || String(err))}</p>';
   }
 })();
