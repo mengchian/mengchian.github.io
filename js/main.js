@@ -7,9 +7,10 @@ function escapeHtml(str) {
 }
 
 async function loadData() {
+  // 加上 cache: "no-store",避免瀏覽器把 JSON 快取住,改了內容卻看不到更新
   const [profileRes, projectsRes] = await Promise.all([
-    fetch("data/profile.json"),
-    fetch("data/projects.json"),
+    fetch("data/profile.json", { cache: "no-store" }),
+    fetch("data/projects.json", { cache: "no-store" }),
   ]);
   const profile = await profileRes.json();
   const projects = await projectsRes.json();
@@ -95,7 +96,11 @@ function renderProjects(projects) {
         ? `<div class="repo-lang"><span class="lang-dot" style="background:${escapeHtml(p.languageColor || "#8B949E")}"></span>${escapeHtml(p.language)}</div>`
         : "";
       const badge = p.featured ? `<span class="featured-badge">★ 精選</span>` : "";
+      const image = p.image
+        ? `<img class="repo-thumb" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy" />`
+        : "";
       const inner = `
+        ${image}
         <div class="repo-name">${REPO_ICON}${escapeHtml(p.name)} ${badge}</div>
         <p class="repo-desc">${escapeHtml(p.description || "")}</p>
         <div class="repo-tags">${tags}</div>
@@ -105,6 +110,28 @@ function renderProjects(projects) {
         ? `<a class="repo-card" href="${escapeHtml(p.link)}" target="_blank" rel="noopener">${inner}</a>`
         : `<div class="repo-card">${inner}</div>`;
     })
+    .join("");
+}
+
+function renderCertificates(profile) {
+  const section = document.getElementById("certificates");
+  const list = profile.certificates || [];
+  if (!list.length) {
+    section.style.display = "none";
+    return;
+  }
+  const wrap = document.getElementById("certificates-grid");
+  wrap.innerHTML = list
+    .map(
+      (c) => `
+      <figure class="cert-card">
+        <img src="${escapeHtml(c.image)}" alt="${escapeHtml(c.name || "")}" loading="lazy" />
+        <figcaption>
+          <p class="cert-name">${escapeHtml(c.name || "")}</p>
+          ${c.issuer ? `<p class="cert-issuer">${escapeHtml(c.issuer)}</p>` : ""}
+        </figcaption>
+      </figure>`
+    )
     .join("");
 }
 
@@ -125,6 +152,7 @@ function renderContact(profile) {
     renderSkills(profile);
     renderExperience(profile);
     renderProjects(projects);
+    renderCertificates(profile);
     renderContact(profile);
     typeWhoami(profile, () => {
       document.getElementById("terminal-output").classList.add("show");
