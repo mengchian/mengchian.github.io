@@ -5,7 +5,7 @@
     "tags": ["EEG", "BCI", "訊號處理"],
     "language": "Python",
     "languageColor": "#3572A5",
-    "link": "",
+    "link": "https://link.springer.com/chapter/10.1007/978-981-96-6438-2_33",
     "featured": true
   },
   {
@@ -14,7 +14,7 @@
     "tags": ["CNN", "BiLSTM", "SENet", "PyTorch"],
     "language": "PyTorch",
     "languageColor": "#EE4C2C",
-    "link": "",
+    "link": "https://hdl.handle.net/11296/njm8wp",
     "featured": true
   },
   {
@@ -23,7 +23,7 @@
     "tags": ["PHP", "MySQL", "推薦系統"],
     "language": "PHP",
     "languageColor": "#4F5D95",
-    "link": "",
+    "link": "https://drive.google.com/file/d/115LK0a2CCvFzEo3ToeHXYTV0kEPls4zy/view",
     "featured": false
   },
   {
