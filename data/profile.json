@@ -28,6 +28,18 @@
     "EEGLAB",
     "CUDA"
   ],
+  "certificates": [
+    {
+      "name": "GEPT 全民英檢中級",
+      "issuer": "LTTC 財團法人語言訓練測驗中心",
+      "image": "images/gept.jpg"
+    },
+    {
+      "name": "IT Help Desk 實習證明",
+      "issuer": "上銀科技股份有限公司",
+      "image": "images/hiwin-cert.jpg"
+    }
+  ],
   "experience": [
     {
       "date": "2024/9 – 2025/6",
