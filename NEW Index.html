@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>吳孟謙 · 資訊人員</title>
+<meta name="description" content="吳孟謙的個人作品集與自傳網站" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* =========================================================
+   以下是「樣式」設定,一般不用動。
+   要改內容請往下捲到 <body> 區域,找中文文字直接改。
+   ========================================================= */
+:root {
+  --bg: #0D1117;
+  --surface: #161B22;
+  --surface-2: #1C2128;
+  --border: #30363D;
+  --text: #E6EDF3;
+  --text-dim: #8B949E;
+  --accent: #3FB950;
+  --accent-dim: #2EA043;
+  --link: #58A6FF;
+  --amber: #D29922;
+  --mono: "JetBrains Mono", "SFMono-Regular", Consolas, Menlo, monospace;
+  --sans: "Inter", "Noto Sans TC", -apple-system, "PingFang TC", sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.7; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+.topnav { border-bottom: 1px solid var(--border); background: rgba(13,17,23,0.9); backdrop-filter: blur(6px); position: sticky; top: 0; z-index: 10; }
+.topnav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+.topnav .brand { font-family: var(--mono); font-weight: 600; color: var(--text); font-size: 14px; }
+.topnav .brand .dot { color: var(--accent); }
+.topnav nav { display: flex; gap: 18px; font-family: var(--mono); font-size: 13px; }
+.topnav nav a { color: var(--text-dim); }
+.topnav nav a:hover { color: var(--text); text-decoration: none; }
+
+.hero { padding: 56px 0 48px; }
+.terminal { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
+.terminal-bar { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--surface-2); border-bottom: 1px solid var(--border); }
+.tdot { width: 11px; height: 11px; border-radius: 50%; }
+.tdot.red { background: #FF5F56; } .tdot.yellow { background: #FFBD2E; } .tdot.green { background: #27C93F; }
+.terminal-bar .tpath { margin-left: 8px; font-family: var(--mono); font-size: 12px; color: var(--text-dim); }
+.terminal-body { padding: 22px 20px 26px; font-family: var(--mono); font-size: 15px; }
+.terminal-line { color: var(--text-dim); margin: 0 0 10px; }
+.terminal-line .prompt { color: var(--accent); }
+.terminal-output h1 { margin: 4px 0 4px; font-size: 32px; color: var(--text); font-family: var(--sans); font-weight: 700; }
+.terminal-output .title-en { color: var(--text-dim); font-size: 14px; margin: 0 0 12px; }
+.terminal-output .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; }
+.terminal-output .tag { font-size: 12px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 999px; color: var(--text-dim); background: var(--surface-2); }
+.terminal-output .meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--text-dim); }
+.terminal-output .meta a { color: var(--link); }
+
+section { padding: 44px 0; border-top: 1px solid var(--border); }
+.section-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 20px; }
+.section-head .cmd { font-family: var(--mono); color: var(--accent); font-size: 13px; }
+.section-head h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin: 0; font-weight: 600; }
+
+.about-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 22px 24px; white-space: pre-line; }
+.about-card p { margin: 0 0 12px; }
+.about-card ul { margin: 0; padding-left: 20px; }
+.about-card li { margin-bottom: 8px; }
+.about-card b { color: var(--text); }
+
+.skill-group { margin-bottom: 16px; }
+.skill-group h3 { font-family: var(--mono); font-size: 13px; color: var(--text-dim); font-weight: 500; margin: 0 0 8px; }
+.skills { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-pill { font-family: var(--mono); font-size: 12.5px; padding: 5px 11px; border: 1px solid var(--border); border-radius: 999px; color: var(--text-dim); background: var(--surface); }
+
+.gitlog { position: relative; }
+.commit { position: relative; padding-left: 26px; padding-bottom: 26px; border-left: 2px solid var(--border); margin-left: 6px; }
+.commit:last-child { border-left: 2px solid transparent; padding-bottom: 0; }
+.commit::before { content: ""; position: absolute; left: -7px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+.commit-meta { font-family: var(--mono); font-size: 12px; color: var(--text-dim); display: flex; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+.commit-meta .hash { color: var(--amber); }
+.commit-title { font-size: 16px; font-weight: 600; margin: 0 0 2px; }
+.commit-company { color: var(--text-dim); font-size: 14px; margin: 0 0 8px; }
+.commit-desc { margin: 0; color: var(--text); font-size: 14.5px; }
+.commit-desc ul { margin: 6px 0 0; padding-left: 18px; }
+.commit-desc li { margin-bottom: 4px; }
+
+.projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 620px) { .projects-grid { grid-template-columns: 1fr; } }
+.repo-card { border: 1px solid var(--border); border-radius: 8px; padding: 18px 18px 16px; background: var(--surface); display: flex; flex-direction: column; gap: 8px; transition: border-color 0.15s ease; }
+.repo-card:hover { border-color: var(--accent-dim); }
+.repo-name { font-family: var(--mono); font-weight: 600; color: var(--link); font-size: 15px; display:flex; align-items:center; gap:6px; }
+.repo-desc { color: var(--text-dim); font-size: 13.5px; flex-grow: 1; }
+.repo-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.repo-tag { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--text-dim); border: 1px solid var(--border); }
+.featured-badge { font-size: 11px; color: var(--amber); font-family: var(--mono); margin-left: 4px; }
+
+.edu-table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.edu-table td { padding: 10px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+.edu-table td:first-child { color: var(--text-dim); font-family: var(--mono); font-size: 12.5px; white-space: nowrap; padding-right: 18px; }
+
+.contact-terminal { font-family: var(--mono); font-size: 15px; }
+.contact-terminal .prompt { color: var(--accent); }
+.contact-list { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-direction: column; gap: 8px; font-family: var(--sans); font-size: 14.5px; }
+.contact-list a { color: var(--text); }
+.contact-list a:hover { color: var(--link); }
+
+footer { padding: 26px 0 56px; text-align: center; color: var(--text-dim); font-family: var(--mono); font-size: 12px; }
+</style>
+</head>
+<body>
+
+<header class="topnav">
+  <div class="wrap">
+    <div class="brand">~/吳孟謙<span class="dot">$</span></div>
+    <nav>
+      <a href="#about">自傳</a>
+      <a href="#skills">技能</a>
+      <a href="#experience">經歷</a>
+      <a href="#projects">研究/作品</a>
+      <a href="#contact">聯絡</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- =========== HERO 區塊:姓名、職稱、標籤、聯絡方式簡覽 =========== -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="terminal">
+        <div class="terminal-bar">
+          <span class="tdot red"></span><span class="tdot yellow"></span><span class="tdot green"></span>
+          <span class="tpath">bash — ~/portfolio</span>
+        </div>
+        <div class="terminal-body">
+          <p class="terminal-line"><span class="prompt">$</span> whoami</p>
+          <div class="terminal-output">
+            <h1>吳孟謙</h1>
+            <p class="title-en">WU, MENG-CHIAN　|　資訊人員 · IT / MIS Engineer</p>
+            <div class="tags">
+              <span class="tag">學習力強</span>
+              <span class="tag">認真負責</span>
+              <span class="tag">刻苦耐勞</span>
+              <span class="tag">團隊溝通合作</span>
+            </div>
+            <div class="meta">
+              <span>📍 台中市西屯區</span>
+              <span>🎓 逢甲大學資訊工程碩士</span>
+              <span>💼 1~2 年工作經歷</span>
+              <span><a href="mailto:smartwu6229@gmail.com">smartwu6229@gmail.com</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== 自傳 =========== -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="cmd">$ cat about.md</span>
+        <h2>自傳</h2>
+      </div>
+      <div class="about-card">
+        <p>畢業於逢甲大學資訊工程碩士,具備資料處理、深度學習模型建構與系統開發能力,並擁有一線企業 IT Help Desk 實習經驗。</p>
+        <ul>
+          <li><b>資工與 AI 實務</b>:碩士期間專注於腦波訊號分析、資料預處理與深度學習模型建構;大學時期曾團隊合作開發音樂推薦系統,具備完整的軟體專案開發與模組整合經驗。</li>
+          <li><b>企業實踐與問題解決</b>:曾於上銀科技擔任 IT Help Desk 實習生,負責全公司同仁電腦設備障礙排除、系統軟硬體部署與資料備份,鍛鍊出極佳的溝通能力與實事求是的排錯邏輯。</li>
+          <li><b>快速學習與高度適應力</b>:具備強烈的自學動機與適應力,剛服完兵役,對業界生態保持開放積極態度。目前期許投入半導體製程或封裝領域,不論是學習企業專用軟體、深入了解製程技術或實地參與產線運作,皆具備極高的學習熱忱與執行力。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== 技能 =========== -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="cmd">$ ls skills/</span>
+        <h2>技能</h2>
+      </div>
+
+      <div class="skill-group">
+        <h3>程式語言與開發工具</h3>
+        <div class="skills">
+          <span class="skill-pill">Python</span><span class="skill-pill">C</span>
+          <span class="skill-pill">MATLAB</span><span class="skill-pill">PHP</span>
+          <span class="skill-pill">Java</span><span class="skill-pill">SQL</span>
+          <span class="skill-pill">HTML/CSS</span><span class="skill-pill">Bootstrap</span>
+          <span class="skill-pill">AJAX</span><span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">Git</span><span class="skill-pill">MySQL</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>人工智慧與深度學習</h3>
+        <div class="skills">
+          <span class="skill-pill">PyTorch</span><span class="skill-pill">TensorFlow</span>
+          <span class="skill-pill">Keras</span><span class="skill-pill">NumPy / Pandas</span>
+          <span class="skill-pill">OpenCV</span><span class="skill-pill">CNN</span>
+          <span class="skill-pill">BiLSTM</span><span class="skill-pill">SENet</span>
+          <span class="skill-pill">EEGLAB</span><span class="skill-pill">CUDA</span>
+          <span class="skill-pill">Jupyter / Colab</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>文書與其他工具</h3>
+        <div class="skills">
+          <span class="skill-pill">Word</span><span class="skill-pill">PowerPoint</span>
+          <span class="skill-pill">Excel</span><span class="skill-pill">Outlook</span>
+          <span class="skill-pill">Windows 10 / 11</span><span class="skill-pill">Blender</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>語言能力</h3>
+        <div class="skills">
+          <span class="skill-pill">英文 中等</span>
+          <span class="skill-pill">日文 略懂</span>
+          <span class="skill-pill">台語 略懂</span>
+          <span class="skill-pill">GEPT 全民英檢中級</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== 學經歷:git log 時間軸 =========== -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="cmd">$ git log --oneline</span>
+        <h2>學經歷</h2>
+      </div>
+      <div class="gitlog">
+
+        <div class="commit">
+          <div class="commit-meta"><span class="hash">#a1c9f02</span><span>2024/9 – 2025/6 · 10 個月</span></div>
+          <p class="commit-title">專案研究助理</p>
+          <p class="commit-company">逢甲大學</p>
+          <div class="commit-desc">碩士期間負責相關研究專案,執行數據資料的蒐集與彙整,並定期於會議中進行簡報與進度討論。在技術實作上,主導深度學習模型架構的建立與實驗設計,並透過數據測試與結果分析持續優化模型效能,具備完整的演算法開發與數據驗證能力。</div>
+        </div>
+
+        <div class="commit">
+          <div class="commit-meta"><span class="hash">#7e4b81d</span><span>2022/2 – 2022/6 · 5 個月</span></div>
+          <p class="commit-title">IT Help Desk 實習生</p>
+          <p class="commit-company">上銀科技股份有限公司</p>
+          <div class="commit-desc">
+            <ul>
+              <li>第一線 IT 叫修服務與故障排除:協助處理公司電腦設備障礙、硬體故障與指定軟體安裝設定。</li>
+              <li>硬體更換與資料備份作業:執行電腦系統重灌、硬體升級、舊機資料備份與新機轉移設定。</li>
+              <li>公務行動裝置設定:負責公務手機初期設定與公司指定軟體安裝部署。</li>
+              <li>使用者終端設備維護:協助排除基礎網路與設備連線問題,維持同仁日常資訊作業流暢。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="commit">
+          <div class="commit-meta"><span class="hash">#c02de3a</span><span>2023/9 – 2026/1</span></div>
+          <p class="commit-title">資訊工程學系 碩士畢業</p>
+          <p class="commit-company">逢甲大學</p>
+          <div class="commit-desc">碩士論文研究結合腦機介面(BCI)與深度學習的生理訊號分析,詳見下方「研究成果」。</div>
+        </div>
+
+        <div class="commit">
+          <div class="commit-meta"><span class="hash">#5f18b6e</span><span>2018/9 – 2022/6</span></div>
+          <p class="commit-title">資訊工程學系 大學畢業</p>
+          <p class="commit-company">東海大學</p>
+          <div class="commit-desc">大學時期團隊合作開發音樂推薦系統,發表於 TANET2021。</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== 研究成果 / 作品:repo 卡片 =========== -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="cmd">$ ls research/</span>
+        <h2>研究成果與作品</h2>
+      </div>
+      <div class="projects-grid">
+
+        <div class="repo-card">
+          <div class="repo-name">📄 ICICT2025 論文發表 <span class="featured-badge">★ 精選</span></div>
+          <div class="repo-desc">發表論文〈A Study to Analyze the Effects of Music and Meditation on Attention and Emotion Using EEG Technology〉,結果刊登於 Springer 出版之 ICICT2025 刊物。運用 EMOTIV 腦波儀與 RSVP 實驗設計,透過 FFT 訊號處理與特徵擷取,量化音樂與冥想對專注力、情緒的影響。</div>
+          <div class="repo-tags">
+            <span class="repo-tag">EEG</span><span class="repo-tag">BCI</span><span class="repo-tag">訊號處理</span>
+          </div>
+        </div>
+
+        <div class="repo-card">
+          <div class="repo-name">🧠 碩士論文 <span class="featured-badge">★ 精選</span></div>
+          <div class="repo-desc">研究結合腦機介面(BCI)與深度學習的生理訊號分析,設計 CNN-SENet-BiLSTM 混合架構。於 SEED 情緒資料集取得 96.38% 分類準確率,較傳統 DNN 提升 32.06%;並驗證自然環境音可提升 18% 持續專注力。</div>
+          <div class="repo-tags">
+            <span class="repo-tag">CNN</span><span class="repo-tag">BiLSTM</span><span class="repo-tag">SENet</span><span class="repo-tag">PyTorch</span>
+          </div>
+        </div>
+
+        <div class="repo-card">
+          <div class="repo-name">🎵 TANET2021 論文發表</div>
+          <div class="repo-desc">發表論文〈一個音樂推薦系統的設計與實作〉。前端以 Bootstrap + AJAX 優化互動,後端以 PHP 整合 MySQL 資料庫,核心運用餘弦相似度演算法計算單曲關聯性,結合會員收藏紀錄進行推薦,並嵌入 YouTube Music 實現零檔案儲存串流。</div>
+          <div class="repo-tags">
+            <span class="repo-tag">PHP</span><span class="repo-tag">MySQL</span><span class="repo-tag">推薦系統</span>
+          </div>
+        </div>
+
+        <div class="repo-card">
+          <div class="repo-name">🛠️ IT Help Desk 實務經驗</div>
+          <div class="repo-desc">於上銀科技擔任 IT Help Desk 實習生期間,累積電腦設備環境設定、硬體檢修、資料備份與復原、網路設備設定安裝等實務經驗,並獲得部門主管肯定與轉正(預聘)機會。</div>
+          <div class="repo-tags">
+            <span class="repo-tag">硬體維運</span><span class="repo-tag">故障排除</span>
+          </div>
+        </div>
+
+      </div>
+      <p style="color:var(--text-dim); font-size:13px; font-family:var(--mono); margin-top:14px;">
+        💡 提醒:如果論文或作品有公開連結,可以把上面每張卡片的文字外面包一層
+        <code>&lt;a href="你的連結" target="_blank"&gt;...&lt;/a&gt;</code> 讓它可以點擊。
+      </p>
+    </div>
+  </section>
+
+  <!-- =========== 聯絡我 =========== -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="cmd">$ cat contact.txt</span>
+        <h2>聯絡我</h2>
+      </div>
+      <div class="contact-terminal">
+        <p><span class="prompt">$</span> 歡迎透過以下方式聯絡我</p>
+        <ul class="contact-list">
+          <li>📧 <a href="mailto:smartwu6229@gmail.com">smartwu6229@gmail.com</a></li>
+          <li>📱 0988-522-580</li>
+          <li>📍 台中市西屯區</li>
+          <li>🎯 希望職稱:資訊人員(MIS 程式設計師 / 系統工程師 / 半導體工程師)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; <span id="year"></span> 吳孟謙 · Built with HTML/CSS · Deployed on GitHub Pages
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
