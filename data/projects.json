@@ -1,29 +1,38 @@
 [
   {
-    "name": "portfolio-site",
-    "description": "這個個人網站本身。用純 HTML/CSS/JS 打造,內容由 JSON 資料檔驅動,方便持續更新。",
-    "tags": ["HTML", "CSS", "JavaScript"],
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "link": "https://github.com/yourusername/portfolio-site",
+    "name": "ICICT2025 論文發表",
+    "description": "發表論文〈A Study to Analyze the Effects of Music and Meditation on Attention and Emotion Using EEG Technology〉,結果刊登於 Springer 出版之 ICICT2025 刊物。運用 EMOTIV 腦波儀與 RSVP 實驗設計,透過 FFT 訊號處理量化音樂與冥想對專注力、情緒的影響。",
+    "tags": ["EEG", "BCI", "訊號處理"],
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "link": "",
     "featured": true
   },
   {
-    "name": "task-tracker-app",
-    "description": "簡易的待辦事項應用,支援分類、篩選與本地儲存。練習狀態管理與元件拆分。",
-    "tags": ["React", "LocalStorage"],
-    "language": "TypeScript",
-    "languageColor": "#3178c6",
-    "link": "https://github.com/yourusername/task-tracker-app",
+    "name": "碩士論文",
+    "description": "研究結合腦機介面(BCI)與深度學習的生理訊號分析,設計 CNN-SENet-BiLSTM 混合架構。於 SEED 情緒資料集取得 96.38% 分類準確率,較傳統 DNN 提升 32.06%;並驗證自然環境音可提升 18% 持續專注力。",
+    "tags": ["CNN", "BiLSTM", "SENet", "PyTorch"],
+    "language": "PyTorch",
+    "languageColor": "#EE4C2C",
+    "link": "",
+    "featured": true
+  },
+  {
+    "name": "TANET2021 論文發表",
+    "description": "發表論文〈一個音樂推薦系統的設計與實作〉。前端以 Bootstrap + AJAX 優化互動,後端以 PHP 整合 MySQL 資料庫,核心運用餘弦相似度演算法計算單曲關聯性,並嵌入 YouTube Music 實現零檔案儲存串流。",
+    "tags": ["PHP", "MySQL", "推薦系統"],
+    "language": "PHP",
+    "languageColor": "#4F5D95",
+    "link": "",
     "featured": false
   },
   {
-    "name": "weather-dashboard",
-    "description": "串接公開氣象 API 的天氣儀表板,包含未來預報與圖表視覺化。",
-    "tags": ["API", "Chart.js"],
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "link": "https://github.com/yourusername/weather-dashboard",
+    "name": "IT Help Desk 實務經驗",
+    "description": "於上銀科技擔任 IT Help Desk 實習生期間,累積電腦設備環境設定、硬體檢修、資料備份與復原、網路設備設定安裝等實務經驗。",
+    "tags": ["硬體維運", "故障排除"],
+    "language": "",
+    "languageColor": "",
+    "link": "",
     "featured": false
   }
 ]
